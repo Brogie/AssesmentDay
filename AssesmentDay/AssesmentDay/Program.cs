@@ -56,7 +56,7 @@ namespace AssesmentDay {
 
             foreach (var sale in Sales) {
                 if(sale.Extras == null) {
-                    noExtra++;
+                    noExtra+=sale.Quantity;
                 }
             }
 
@@ -72,7 +72,7 @@ namespace AssesmentDay {
             float total = 0f;
 
             foreach (var sale in Sales) {
-                total += Prices[sale.Drink];
+                total += Prices[sale.Drink] * sale.Quantity;
             }
 
             return total;
@@ -85,9 +85,9 @@ namespace AssesmentDay {
 
             foreach (var sale in Sales) {
                 if (saleCounter.ContainsKey(sale.Drink)) {
-                    saleCounter[sale.Drink]++;
+                    saleCounter[sale.Drink] += sale.Quantity;
                 } else {
-                    saleCounter.Add(sale.Drink, 1);
+                    saleCounter.Add(sale.Drink, sale.Quantity);
                 }
             }
 
@@ -113,9 +113,9 @@ namespace AssesmentDay {
 
             foreach (var sale in Sales) {
                 if (saleCounter.ContainsKey(sale.Roast)) {
-                    saleCounter[sale.Roast]++;
+                    saleCounter[sale.Roast]+=sale.Quantity;
                 } else {
-                    saleCounter.Add(sale.Roast, 1);
+                    saleCounter.Add(sale.Roast, sale.Quantity);
                 }
             }
 
@@ -141,9 +141,9 @@ namespace AssesmentDay {
 
             foreach (var sale in Sales) {
                 if (sale.Extras != null && saleCounter.ContainsKey(sale.Extras)) {
-                    saleCounter[sale.Extras]++;
+                    saleCounter[sale.Extras]+= sale.Quantity;
                 } else if (sale.Extras != null) {
-                    saleCounter.Add(sale.Extras, 1);
+                    saleCounter.Add(sale.Extras, sale.Quantity);
                 }
             }
 
