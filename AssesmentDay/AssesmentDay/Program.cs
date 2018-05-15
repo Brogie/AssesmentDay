@@ -181,7 +181,7 @@ namespace AssesmentDay {
                         for (int i = 0; i < values.Length; i++) {
                             values[i] = values[i].Trim();
 
-                            if (values[i] == string.Empty) {
+                            if (values[i] == string.Empty || values.Length != 2) {
                                 throw new Exception("Price data file error: Data malformed, has every value been filled in?");
                             }
                         }
@@ -212,7 +212,7 @@ namespace AssesmentDay {
                         for (int i = 0; i < values.Length; i++) {
                             values[i] = values[i].Trim();
 
-                            if(values[i] == string.Empty) {
+                            if(values[i] == string.Empty || values.Length != 4) {
                                 throw new Exception("Sale data file error: Data malformed, has every value been filled in?");
                             }
                         }
